@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="irrfApp">
+    <head>
+        <title>Caculo IRRF</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="App.js" type="text/javascript"></script>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
+    </head>
+    <body ng-controller="irrfController">
+        <div class="container">
+        <form>
+            <!-- Entrada de dados -->
+            <div class="form-group">
+                <label>
+                    Valor Salario Bruto:
+                    <input ng-model="bruto" class="form-control text-center"/>
+                </label></br>
+
+                <label>
+                    Deduções: (Dependentes)
+                    <input ng-model="dependentes" class="form-control"/>
+                </label></br>
+
+                <label>
+                    Outras deduções:
+                    <input ng-model="outrasDespesas" class="form-control"/>
+                </label></br>
+
+                <button ng-click="calcularIrrf()" class="btn btn-success">
+                    Calcular
+                </button>
+                <button ng-click="esconderIMC()" class="btn btn-danger">
+                    Esconder
+                </button>
+            </div>
+
+            <!-- Saída da informação -->
+            <div ng-show="exibeResultados"><hr/>
+
+                <div>Valor Liquido: {{ total.toFixed(2) }}</div>
+            </div>
+        </form>
+        </div>
+    </body>
+</html>
